@@ -1,0 +1,150 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Wayfair Shipping Document Downloads",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "https://api.wayfair.com",
+        "description": "The live, production server used for active integrations."
+      },
+      {
+        "url": "https://sandbox.api.wayfair.com",
+        "description": "The external integration testing server used for onboarding new integrations."
+      }
+    ],
+    "components": {
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "paths": {
+      "/v1/shipping_label/{purchaseOrderNumber}": {
+        "get": {
+          "tags": [
+            "Shipping Docs"
+          ],
+          "summary": "shipping label retrieval",
+          "parameters": [
+            {
+              "name": "purchaseOrderNumber",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "example": "CS123456789"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/octet-stream": {}
+              }
+            },
+            "401": {
+              "description": "Authorization failed",
+              "content": {
+                "text/html": {}
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/html": {}
+              }
+            }
+          }
+        }
+      },
+      "/v1/packing_slip/{purchaseOrderNumber}": {
+        "get": {
+          "tags": [
+            "Shipping Docs"
+          ],
+          "summary": "packing slip retrieval",
+          "parameters": [
+            {
+              "name": "purchaseOrderNumber",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "example": "CS123456789"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/octet-stream": {}
+              }
+            },
+            "401": {
+              "description": "Authorization failed",
+              "content": {
+                "text/html": {}
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/html": {}
+              }
+            }
+          }
+        }
+      },
+      "/v1/bill_of_lading/{purchaseOrderNumber}": {
+        "get": {
+          "tags": [
+            "Shipping Docs"
+          ],
+          "summary": "bill of lading retrieval",
+          "parameters": [
+            {
+              "name": "purchaseOrderNumber",
+              "in": "path",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "example": "CS123456789"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/octet-stream": {}
+              }
+            },
+            "401": {
+              "description": "Authorization failed",
+              "content": {
+                "text/html": {}
+              }
+            },
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "text/html": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
